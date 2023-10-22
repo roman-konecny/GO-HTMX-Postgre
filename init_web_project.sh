@@ -168,7 +168,6 @@ This is a web application written in Go. It uses PostgreSQL database and Docker 
 Other than that it uses htmx for dynamic HTML and basic CSS.
 
 Creation process of this project can be found in /scripts/init_web_project.sh
-This Markdown document (`architecture.md`) explains the directory structure with a brief description of each directory's intended purpose. You can further enrich the document by adding more details or descriptions as your project evolves. Place this file in the `docs/` directory of your project, and it will serve as a handy reference for you and your team.
 EOL
 
     echo "README.md has been created."
@@ -184,7 +183,7 @@ This document outlines the directory structure of the project.
 ## Directory Structure
 
 - your_project_root_directory
-    - api                     # API endpoint definitions and protocol files (such as gRPC `.proto` files)
+    - api                     # API endpoint definitions and protocol files (such as gRPC .proto files)
     - cmd                     # Entrypoints of the application
         - your_app_name       # Main application entrypoint
             - main.go         # The main application file
@@ -224,10 +223,11 @@ init_go_mod() {
 
 # Execute the functions
 create_directories
-create_files
-init_go_mod
-download_htmx
 create_main_go
+init_go_mod
+init_postgres_docker
+create_files
+download_htmx
 create_html_and_css
 create_readme
 create_architecture
