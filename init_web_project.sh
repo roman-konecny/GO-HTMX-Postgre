@@ -40,7 +40,7 @@ create_directories() {
              config \
              tests \
              scripts \
-             docs
+             docs && echo -e "\e[32m [succ] Directories have been created.\e[0m"
 }
 
 # Function to create files
@@ -56,7 +56,7 @@ create_files() {
           config/config.yaml \
           tests/some_test.go \
           scripts/build.sh \
-          docs/README.md
+          docs/README.md  && echo -e "\e[32m [succ] Files have been created.\e[0m"
 }
 
 # Function to initialize PostgreSQL database with Docker
@@ -74,13 +74,13 @@ init_postgres_docker() {
                -e POSTGRES_USER=$DB_USER -e POSTGRES_DB=$DB_NAME \
                -p 5432:5432 -d postgres:latest
 
-    echo "PostgreSQL Docker container '$CONTAINER_NAME' has been created and configured."
+    echo -e "\e[32m [succ] PostgreSQL container has been created.\e[0m"
 }
 
 # Function to download htmx.min.js
 download_htmx() {
     wget -O web/static/js/htmx.min.js https://unpkg.com/htmx.org@1.6.1
-    echo "htmx.min.js downloaded to web/static/js/"
+    echo -e "\e[32m [succ] htmx.min.js downloaded to web/static/js/\e[0m"
 }
 
 # Function to create main.go
@@ -108,7 +108,7 @@ func main() {
 }
 EOL
 
-    echo "main.go has been created."
+    echo -e "\e[32m [succ] main.go has been created.\e[0m"
 }
 
 # Function to create index.html and reset.css
@@ -155,7 +155,7 @@ isolation: isolate;
 }
 EOL
 
-    echo "index.html and reset.css have been created."
+    echo -e "\e[32m [succ] index.html and reset.css have been created.\e[0m"
 }
 
 # Function to add markdown file to docs directory with prepared content
@@ -170,7 +170,7 @@ Other than that it uses htmx for dynamic HTML and basic CSS.
 Creation process of this project can be found in /scripts/init_web_project.sh
 EOL
 
-    echo "README.md has been created."
+    echo -e "\e[32m [succ] README.md has been created.\e[0m"
 }
 
 # Function to create architecture.md
@@ -210,7 +210,7 @@ This document outlines the directory structure of the project.
         - fragments           # HTML fragments
 EOL
 
-    echo "architecture.md has been created."
+    echo -e "\e[32m [succ] architecture.md has been created.\e[0m"
 }
 
 
@@ -232,7 +232,7 @@ create_html_and_css
 create_readme
 create_architecture
 
-echo "Project $PROJECT_NAME has been initialized in the current directory."
+echo -e "\e[32m [succ] Project $PROJECT_NAME has been initialized in the current directory.\e[0m"
 
 # move the script itself into scripts directory
 mv init_web_project.sh scripts/
